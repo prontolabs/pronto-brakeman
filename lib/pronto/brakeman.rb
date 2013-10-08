@@ -27,11 +27,13 @@ module Pronto
       output.checks.all_warnings.each do |warning|
         patch = patch_for_warning(ruby_patches, warning)
 
-        line = patch.added_lines.select do |added_line|
-          added_line.new_lineno == warning.line
-        end.first
+        if patch
+          line = patch.added_lines.select do |added_line|
+            added_line.new_lineno == warning.line
+          end.first
 
-        result << new_warning_message(line, warning) if line
+          result << new_warning_message(line, warning) if line
+        end
       end
 
       result
