@@ -6,7 +6,7 @@ module Pronto
     let(:brakeman) { Brakeman.new }
 
     describe '#run' do
-      subject { brakeman.run(patches) }
+      subject { brakeman.run(patches, nil) }
 
       context 'patches are nil' do
         let(:patches) { nil }

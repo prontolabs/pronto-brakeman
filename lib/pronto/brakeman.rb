@@ -3,7 +3,7 @@ require 'brakeman'
 
 module Pronto
   class Brakeman < Runner
-    def run(patches)
+    def run(patches, _)
       return [] unless patches
 
       ruby_patches = patches.select { |patch| patch.additions > 0 }
