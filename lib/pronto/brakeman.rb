@@ -22,7 +22,7 @@ module Pronto
     end
 
     def messages_for(ruby_patches, output)
-      output.checks.all_warnings.each do |warning|
+      output.checks.all_warnings.map do |warning|
         patch = patch_for_warning(ruby_patches, warning)
 
         if patch
