@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = ['lib']
 
-  s.add_dependency 'pronto', '~> 0.2.0'
-  s.add_dependency 'brakeman', '~> 2.6.0'
-  s.add_development_dependency 'rake', '~> 10.1.0'
-  s.add_development_dependency 'rspec', '~> 2.14.0'
+  s.add_runtime_dependency 'pronto', '~> 0.2', '>= 0.2.0'
+  s.add_runtime_dependency 'brakeman', '~> 2.6', '>= 2.6.0'
+  s.add_development_dependency 'rake', '~> 10.1', '>= 10.1.0'
+  s.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.0'
 end
