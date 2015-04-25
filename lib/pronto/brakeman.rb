@@ -12,7 +12,7 @@ module Pronto
       files = ruby_patches.map { |patch| patch.new_file_full_path.to_s }
 
       if files.any?
-        output = ::Brakeman.run(app_path: '.',
+        output = ::Brakeman.run(app_path: ruby_patches.first.repo.path,
                                 output_formats: [:to_s],
                                 only_files: files)
         messages_for(ruby_patches, output).compact
