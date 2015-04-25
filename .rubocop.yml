@@ -6,3 +6,7 @@ SignalException:
 
 TrailingComma:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'spec/fixtures/**/*'
