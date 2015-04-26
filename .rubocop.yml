@@ -7,6 +7,9 @@ SignalException:
 TrailingComma:
   Enabled: false
 
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
 AllCops:
   Exclude:
     - 'spec/fixtures/**/*'

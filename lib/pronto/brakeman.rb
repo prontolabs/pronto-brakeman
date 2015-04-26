@@ -7,7 +7,7 @@ module Pronto
       return [] unless patches
 
       ruby_patches = patches.select { |patch| patch.additions > 0 }
-                     .select { |patch| ruby_file?(patch.new_file_full_path) }
+        .select { |patch| ruby_file?(patch.new_file_full_path) }
 
       files = ruby_patches.map { |patch| patch.new_file_full_path.to_s }
 
