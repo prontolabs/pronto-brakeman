@@ -18,7 +18,7 @@ module Pronto
       end
 
       context 'patches with a single unsafe redirect' do
-        let(:repo) { Git::Repository.new('spec/fixtures/test.git') }
+        include_context 'test repo'
         let(:patches) { repo.diff('da70127') }
 
         its(:count) { should == 1 }
