@@ -19,6 +19,8 @@ module Pronto
       else
         []
       end
+    rescue ::Brakeman::NoApplication
+      []
     end
 
     def messages_for(ruby_patches, output)
