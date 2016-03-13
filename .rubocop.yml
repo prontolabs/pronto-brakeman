@@ -4,12 +4,8 @@ Documentation:
 SignalException:
   EnforcedStyle: only_raise
 
-TrailingComma:
-  Enabled: false
-
-Style/MultilineOperationIndentation:
+MultilineOperationIndentation:
   EnforcedStyle: indented
 
-AllCops:
-  Exclude:
-    - 'spec/fixtures/**/*'
+MultilineMethodCallIndentation:
+  EnforcedStyle: indented
