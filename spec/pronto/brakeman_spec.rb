@@ -2,10 +2,10 @@ require 'spec_helper'
 
 module Pronto
   describe Brakeman do
-    let(:brakeman) { Brakeman.new }
+    let(:brakeman) { Brakeman.new(patches) }
 
     describe '#run' do
-      subject { brakeman.run(patches, nil) }
+      subject { brakeman.run }
 
       context 'patches are nil' do
         let(:patches) { nil }
