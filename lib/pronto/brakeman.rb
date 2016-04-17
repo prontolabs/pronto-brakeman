@@ -32,9 +32,21 @@ module Pronto
     end
 
     def new_message(line, warning)
-      Message.new(line.patch.delta.new_file[:path], line, :warning,
+      Message.new(line.patch.delta.new_file[:path], line,
+                  severity_for_confidence(warning.confidence),
                   "Possible security vulnerability: #{warning.message}",
                   nil, self.class)
+    end
+
+    def severity_for_confidence(confidence_level)
+      case confidence_level
+      when 0 # Brakeman High confidence
+        :fatal
+      when 1 # Brakeman Medium confidence
+        :warning
+      else # Brakeman Low confidence (and other possibilities)
+        :info
+      end
     end
 
     def patch_for_warning(ruby_patches, warning)
