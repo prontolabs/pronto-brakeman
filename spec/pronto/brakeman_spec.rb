@@ -34,5 +34,29 @@ module Pronto
         end
       end
     end
+
+    describe "#severity_for_confidence" do
+      subject { brakeman.severity_for_confidence(confidence_level) }
+
+      let(:patches) { nil }
+
+      context "when confidence is HIGH" do
+        let(:confidence_level) { 0 }
+
+        it { should == :fatal }
+      end
+
+      context "when confidence is MEDIUM" do
+        let(:confidence_level) { 1 }
+
+        it { should == :warning }
+      end
+
+      context "when confidence is anything else" do
+        let(:confidence_level) { 2 }
+
+        it { should == :info }
+      end
+    end
   end
 end
