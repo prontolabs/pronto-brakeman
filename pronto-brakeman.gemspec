@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.author = 'Mindaugas Mozūras'
   s.email = 'mindaugas.mozuras@gmail.com'
-  s.homepage = 'http://github.org/mmozuras/pronto-brakeman'
+  s.homepage = 'http://github.com/mmozuras/pronto-brakeman'
   s.summary = 'Pronto runner for Brakeman, security vulnerability scanner for RoR'
 
   s.licenses = ['MIT']
