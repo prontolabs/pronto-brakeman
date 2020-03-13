@@ -51,7 +51,7 @@ module Pronto
 
     def patch_for_warning(ruby_patches, warning)
       ruby_patches.find do |patch|
-        patch.new_file_full_path.to_s == warning.file.to_s
+        patch.new_file_full_path.to_s == warning.file.absolute
       end
     end
   end
