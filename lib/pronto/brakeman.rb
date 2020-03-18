@@ -34,7 +34,7 @@ module Pronto
     def new_message(line, warning)
       Message.new(line.patch.delta.new_file[:path], line,
                   severity_for_confidence(warning.confidence),
-                  "Possible security vulnerability: #{warning.message}",
+                  "Possible security vulnerability: [#{warning.message}](#{warning.link})",
                   nil, self.class)
     end
 

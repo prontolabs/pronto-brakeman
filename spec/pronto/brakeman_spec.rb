@@ -30,7 +30,7 @@ module Pronto
         its(:count) { should == 1 }
         its(:'first.msg') do
           should ==
-            'Possible security vulnerability: Possible unprotected redirect'
+            'Possible security vulnerability: [Possible unprotected redirect](https://brakemanscanner.org/docs/warning_types/redirect/)'
         end
       end
     end
