@@ -10,9 +10,16 @@ module Pronto
 
       return [] unless files.any?
 
-      output = ::Brakeman.run(app_path: repo_path,
-                              output_formats: [:to_s],
-                              only_files: files)
+      brakeman_options = {
+        app_path: repo_path,
+        output_formats: [:to_s],
+      }
+
+      if ENV.fetch('PRONTO_BRAKEMAN_ONLY_FILES', true) != '0'
+        brakeman_options[:only_files] = files
+      end
+
+      output = ::Brakeman.run(**brakeman_options)
       messages_for(ruby_patches, output).compact
     rescue ::Brakeman::NoApplication
       []

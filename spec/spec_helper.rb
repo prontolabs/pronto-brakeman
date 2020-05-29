@@ -12,6 +12,12 @@ RSpec.shared_context 'test repo' do
   after { FileUtils.mv(dot_git, git) }
 end
 
+RSpec.shared_context 'brakeman runs all checks' do
+  let(:brakeman_config) { repo.path.join('config', 'brakeman.yml') }
+  before { FileUtils.cp('spec/fixtures/files/brakeman-run-all-checks.yml', brakeman_config) }
+  after { FileUtils.rm(brakeman_config) }
+end
+
 RSpec.configure do |config|
   config.expect_with(:rspec) { |c| c.syntax = :should }
   config.mock_with(:rspec) { |c| c.syntax = :should }
