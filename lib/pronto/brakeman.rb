@@ -4,15 +4,8 @@ require 'brakeman'
 module Pronto
   class Brakeman < Runner
     def run
-      files = ruby_patches.map do |patch|
-        patch.new_file_full_path.relative_path_from(repo_path).to_s
-      end
-
-      return [] unless files.any?
-
       output = ::Brakeman.run(app_path: repo_path,
-                              output_formats: [:to_s],
-                              only_files: files)
+                              output_formats: [:to_s])
       messages_for(ruby_patches, output).compact
     rescue ::Brakeman::NoApplication
       []
@@ -51,7 +44,7 @@ module Pronto
 
     def patch_for_warning(ruby_patches, warning)
       ruby_patches.find do |patch|
-        patch.new_file_full_path.to_s == warning.file.absolute
+        patch.new_file_full_path.to_s == warning.file.to_s
       end
     end
   end
