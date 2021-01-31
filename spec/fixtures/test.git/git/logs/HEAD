@@ -1,2 +1,4 @@
 0000000000000000000000000000000000000000 da701274f54ae0fde7878e9834e5fb2e1148d48b Mindaugas Mozūras <mindaugas.mozuras@gmail.com> 1429988205 +0300	commit (initial): Initial commit
 da701274f54ae0fde7878e9834e5fb2e1148d48b 225af1ab522457873a5994c150d7ad571ff260c0 Mindaugas Mozūras <mindaugas.mozuras@gmail.com> 1429988422 +0300	commit: Add unsafe redirect_to with params
+225af1ab522457873a5994c150d7ad571ff260c0 369f92e8243a2ee803ec3d042d7c55e853e50fce Daniel Holz <dgholz@gmail.com> 1590684278 +0100	push
+369f92e8243a2ee803ec3d042d7c55e853e50fce 369f92e8243a2ee803ec3d042d7c55e853e50fce Daniel Holz <dgholz@gmail.com> 1590684354 +0100	reset: moving to HEAD

@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def index
     redirect_to params
   end
+
+  def show
+    Account.find(params[:id])
+  end
 end
