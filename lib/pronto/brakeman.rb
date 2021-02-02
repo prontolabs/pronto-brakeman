@@ -4,6 +4,8 @@ require 'brakeman'
 module Pronto
   class Brakeman < Runner
     def run
+      return [] if ruby_patches.none?
+
       output = ::Brakeman.run(app_path: repo_path,
                               output_formats: [:to_s])
       messages_for(ruby_patches, output).compact
