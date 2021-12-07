@@ -1,5 +1,5 @@
 module Pronto
   module BrakemanVersion
-    VERSION = '5.1.2  '.freeze
+    VERSION = '0.12.0'.freeze
   end
 end
