@@ -12,7 +12,8 @@ module Pronto
 
       output = ::Brakeman.run(app_path: repo_path,
                               output_formats: [:to_s],
-                              only_files: files)
+                              only_files: files,
+                              run_all_checks: run_all_checks?)
       messages_for(ruby_patches, output).compact
     rescue ::Brakeman::NoApplication
       []
@@ -53,6 +54,14 @@ module Pronto
       ruby_patches.find do |patch|
         patch.new_file_full_path.to_s == warning.file.absolute
       end
+    end
+
+    def run_all_checks?
+      pronto_brakeman_config['run_all_checks'] == true
+    end
+
+    def pronto_brakeman_config
+      pronto_brakeman_config ||= Pronto::ConfigFile.new.to_h['brakeman'] || {}
     end
   end
 end
