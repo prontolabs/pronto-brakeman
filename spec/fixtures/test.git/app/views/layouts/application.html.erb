@@ -8,7 +8,11 @@
 </head>
 <body>
 
-<%= yield %>
+  <%= link_to some_url, target: "_blank" do -%>
+    Uh oh
+  <% end %>
+
+ <%= yield %>
 
 </body>
 </html>

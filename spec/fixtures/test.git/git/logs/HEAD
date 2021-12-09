@@ -1,2 +1,4 @@
 0000000000000000000000000000000000000000 da701274f54ae0fde7878e9834e5fb2e1148d48b Mindaugas Mozūras <mindaugas.mozuras@gmail.com> 1429988205 +0300	commit (initial): Initial commit
 da701274f54ae0fde7878e9834e5fb2e1148d48b 225af1ab522457873a5994c150d7ad571ff260c0 Mindaugas Mozūras <mindaugas.mozuras@gmail.com> 1429988422 +0300	commit: Add unsafe redirect_to with params
+225af1ab522457873a5994c150d7ad571ff260c0 b09de21aa02cbb43386e3a1d7e7e0a628df7ca66 Noah Berman <noah-berman@cookpad.com> 1638890290 +0000	commit: Add a link that is vulnerable to reverse tabnabbing
+b09de21aa02cbb43386e3a1d7e7e0a628df7ca66 737a2ccda4d398b65fd784dd34940c1abffa67f4 Noah Berman <noah-berman@cookpad.com> 1639049703 +0000	commit: Fix typo
