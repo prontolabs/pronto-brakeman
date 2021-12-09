@@ -19,9 +19,9 @@ module Pronto
       []
     end
 
-    def messages_for(ruby_patches, output)
+    def messages_for(code_patches, output)
       output.filtered_warnings.map do |warning|
-        patch = patch_for_warning(ruby_patches, warning)
+        patch = patch_for_warning(code_patches, warning)
 
         next unless patch
         line = patch.added_lines.find do |added_line|
@@ -50,8 +50,8 @@ module Pronto
       end
     end
 
-    def patch_for_warning(ruby_patches, warning)
-      ruby_patches.find do |patch|
+    def patch_for_warning(code_patches, warning)
+      code_patches.find do |patch|
         patch.new_file_full_path.to_s == warning.file.absolute
       end
     end
