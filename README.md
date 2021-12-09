@@ -1,9 +1,8 @@
 # Pronto runner for Brakeman
 
 [![Code Climate](https://codeclimate.com/github/prontolabs/pronto-brakeman.png)](https://codeclimate.com/github/prontolabs/pronto-brakeman)
-[![Build Status](https://travis-ci.org/prontolabs/pronto-brakeman.png)](https://travis-ci.org/prontolabs/pronto-brakeman)
+[![Build Status](https://github.com/prontolabs/pronto-brakeman/actions/workflows/checks.yml/badge.svg)](https://github.com/prontolabs/pronto-brakeman/actions/workflows/checks.yml)
 [![Gem Version](https://badge.fury.io/rb/pronto-brakeman.png)](http://badge.fury.io/rb/pronto-brakeman)
-[![Dependency Status](https://gemnasium.com/prontolabs/pronto-brakeman.png)](https://gemnasium.com/prontolabs/pronto-brakeman)
 
 Pronto runner for [Brakeman](https://github.com/presidentbeef/brakeman), security vulnerability scanner for RoR. [What is Pronto?](https://github.com/prontolabs/pronto)
 
