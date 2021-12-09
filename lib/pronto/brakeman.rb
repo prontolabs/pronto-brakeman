@@ -4,7 +4,8 @@ require 'brakeman'
 module Pronto
   class Brakeman < Runner
     def run
-      files = (ruby_patches | erb_patches).map do |patch|
+      patches = ruby_patches | erb_patches
+      files = patches.map do |patch|
         patch.new_file_full_path.relative_path_from(repo_path).to_s
       end.sort
 
@@ -14,7 +15,7 @@ module Pronto
                               output_formats: [:to_s],
                               only_files: files,
                               run_all_checks: run_all_checks?)
-       messages_for(ruby_patches.concat(erb_patches), output).compact
+       messages_for(patches, output).compact
     rescue ::Brakeman::NoApplication
       []
     end
@@ -57,7 +58,7 @@ module Pronto
     end
 
     def run_all_checks?
-      pronto_brakeman_config['run_all_checks'] == true
+      pronto_brakeman_config['run_all_checks']
     end
 
     def pronto_brakeman_config
