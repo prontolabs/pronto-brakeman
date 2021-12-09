@@ -4,9 +4,9 @@ require 'brakeman'
 module Pronto
   class Brakeman < Runner
     def run
-      files = ruby_patches.map do |patch|
+      files = (ruby_patches | erb_patches).map do |patch|
         patch.new_file_full_path.relative_path_from(repo_path).to_s
-      end
+      end.sort
 
       return [] unless files.any?
 
@@ -62,6 +62,15 @@ module Pronto
 
     def pronto_brakeman_config
       pronto_brakeman_config ||= Pronto::ConfigFile.new.to_h['brakeman'] || {}
+    end
+
+    def erb_patches
+      @erb_patches ||= Array(@patches).select { |patch| patch.additions > 0 }
+                                      .select { |patch| erb_file?(patch.new_file_full_path) }
+    end
+
+    def erb_file?(path)
+      File.extname(path) == '.erb'
     end
   end
 end
