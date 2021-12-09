@@ -45,7 +45,7 @@ module Pronto
       context 'with run all checks disabled' do
         let(:config_hash) { { 'brakeman' => { 'run_all_checks' => false } } }
         include_context 'test repo'
-        let(:patches) { repo.diff('225af1a') }
+        let(:patches) { repo.diff('225af1ab522457873a5994c150d7ad571ff260c0') }
 
         it 'should disable all checks' do
           expect(brakeman.run_all_checks?).to eq false
@@ -57,15 +57,14 @@ module Pronto
       context 'with run all checks enabled' do
         let(:config_hash) { { 'brakeman' => { 'run_all_checks' => true } } }
         include_context 'test repo'
-        let(:patches) { repo.diff('225af1a') }
+        let(:patches) { repo.diff('225af1ab522457873a5994c150d7ad571ff260c0') }
 
         it 'should enable all checks' do
           expect(brakeman.run_all_checks?).to eq true
         end
         its(:count) { should == 1 }
-        its(:'last') do
-          should ==
-            'Possible security check check check: [/)'
+        it "should report a tabnabbing vulnerability" do
+          expect(subject.first.msg).to include("Possible security vulnerability: [When opening a link in a new tab without setting `rel:")
         end
       end
     end
