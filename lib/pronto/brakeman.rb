@@ -14,7 +14,7 @@ module Pronto
                               output_formats: [:to_s],
                               only_files: files,
                               run_all_checks: run_all_checks?)
-       messages_for(ruby_patches, output).compact
+       messages_for(ruby_patches.concat(erb_patches), output).compact
     rescue ::Brakeman::NoApplication
       []
     end
