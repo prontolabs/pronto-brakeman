@@ -46,7 +46,7 @@ module Pronto
         context 'with brakeman not included in pronto config' do
           let(:config_hash) { { 'foo' => {} } }
           include_context 'test repo'
-          let(:patches) { repo.diff('225af1ab522457873a5994c150d7ad571ff260c0') }
+          let(:patches) { repo.diff('b09de21aa02cbb43386e3a1d7e7e0a628df7ca66') }
 
           it 'should disable all checks' do
             expect(brakeman.run_all_checks?).to eq nil
@@ -59,7 +59,7 @@ module Pronto
           context 'with run all checks disabled' do
             let(:config_hash) { { 'brakeman' => { 'run_all_checks' => false } } }
             include_context 'test repo'
-            let(:patches) { repo.diff('225af1ab522457873a5994c150d7ad571ff260c0') }
+            let(:patches) { repo.diff('b09de21aa02cbb43386e3a1d7e7e0a628df7ca66') }
 
             it 'should disable all checks' do
               expect(brakeman.run_all_checks?).to eq false
@@ -71,7 +71,7 @@ module Pronto
           context 'with run all checks enabled' do
             let(:config_hash) { { 'brakeman' => { 'run_all_checks' => true } } }
             include_context 'test repo'
-            let(:patches) { repo.diff('225af1ab522457873a5994c150d7ad571ff260c0') }
+            let(:patches) { repo.diff('b09de21aa02cbb43386e3a1d7e7e0a628df7ca66') }
 
             it 'should enable all checks' do
               expect(brakeman.run_all_checks?).to eq true
