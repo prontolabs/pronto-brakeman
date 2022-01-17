@@ -14,7 +14,8 @@ module Pronto
       output = ::Brakeman.run(app_path: repo_path,
                               output_formats: [:to_s],
                               only_files: files,
-                              run_all_checks: run_all_checks?)
+                              run_all_checks: run_all_checks?,
+                              ignore_file: ignore_file)
        messages_for(patches, output).compact
     rescue ::Brakeman::NoApplication
       []
@@ -59,6 +60,10 @@ module Pronto
 
     def run_all_checks?
       pronto_brakeman_config['run_all_checks']
+    end
+
+    def ignore_file
+      pronto_brakeman_config['ignore_file']
     end
 
     def pronto_brakeman_config
