@@ -25,6 +25,18 @@ module Pronto
         it { should == [] }
       end
 
+      context 'when interactive_ignore option is enabled' do
+        let(:repo) { Pronto::Git::Repository.new('.') }
+        let(:patches) { repo.diff('HEAD~1') }
+        let(:config_hash) { { 'brakeman' => { 'interactive_ignore' => true } } }
+
+        it "runs in interactive mode" do
+          expect(::Brakeman).to receive(:run).with(hash_including(interactive_ignore: true)).and_call_original
+
+          subject
+        end
+      end
+
       context 'not a rails app' do
         let(:repo) { Pronto::Git::Repository.new('.') }
         let(:patches) { repo.diff('HEAD~1') }
