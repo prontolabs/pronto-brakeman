@@ -15,7 +15,8 @@ module Pronto
                               output_formats: [:to_s],
                               only_files: files,
                               run_all_checks: run_all_checks?,
-                              ignore_file: ignore_file)
+                              ignore_file: ignore_file,
+                              interactive_ignore: interactive_ignore?)
        messages_for(patches, output).compact
     rescue ::Brakeman::NoApplication
       []
@@ -64,6 +65,10 @@ module Pronto
 
     def ignore_file
       pronto_brakeman_config['ignore_file']
+    end
+
+    def interactive_ignore?
+      !!pronto_brakeman_config['interactive_ignore']
     end
 
     def pronto_brakeman_config

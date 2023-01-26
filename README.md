@@ -32,3 +32,14 @@ brakeman:
 ```
 
 (This is the equivalent of running `brakeman -i IGNOREFILE` on the command line.)
+
+## Interactive mode
+
+Use this mode to [record any false positives](https://brakemanscanner.org/docs/ignoring_false_positives/) you wish to ignore.
+
+```yaml
+brakeman:
+  interactive_ignore: true
+```
+
+(This is the equivalent of running `brakeman --interactive-ignore` on the command line.)
